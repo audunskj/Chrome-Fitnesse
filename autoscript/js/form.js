@@ -47,8 +47,10 @@ module.exports = function () {
         var t = evt.target;
 
         log(t.id, t.value);
-
-        checkRule(t, t.value, rules[t.id]);
+        
+        if (rules[t.id] !== undefined) {
+            checkRule(t, t.value, rules[t.id]);    
+        }
     });
 
     w.addEventListener('submit', function (evt) {

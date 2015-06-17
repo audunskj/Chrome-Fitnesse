@@ -1,3 +1,7 @@
 #output {
   background-color: gray; 
 }
+
+#fitnesse-start {
+    background-color: red;
+}
