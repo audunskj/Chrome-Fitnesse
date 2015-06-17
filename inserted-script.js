@@ -22,3 +22,4 @@ function addListener(event) {
 
 document.removeEventListener("blur", addListener, true);
 document.addEventListener("blur", addListener, true);
+
