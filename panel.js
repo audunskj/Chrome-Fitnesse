@@ -11,7 +11,7 @@ console.log("yo");
 //}, false);
 //
 document.querySelector('#fitnesse-start').addEventListener('click', function() {
-  console.log("ok");
+    document.querySelector('#fitnesse-output').innerHTML = '';
     sendObjectToInspectedPage({action: "script", content: "inserted-script.js"});
 }, false);
 //
