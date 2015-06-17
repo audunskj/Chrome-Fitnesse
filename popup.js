@@ -4,6 +4,7 @@
 
 
 document.addEventListener('DOMContentLoaded', function() {
+  chrome.tabs.insertCSS( {file: "fitnesse.css"});
   chrome.tabs.executeScript( { file: "fitnesse.js" });
   window.close();
 });

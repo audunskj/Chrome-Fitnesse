@@ -5,8 +5,31 @@ var id = function (el) {
 if(id('output') === null) {
   var elemDiv = document.createElement('div');
   elemDiv.setAttribute("id", "output");
+  
+  var infoDiv = document.createElement('div');
+  infoDiv.setAttribute('id', 'fitnesse-form');
+  elemDiv.appendChild(infoDiv);
+  
   document.body.appendChild(elemDiv);
 }
+
+document.addEventListener('click', function(event) {
+
+  node = event.target;
+  while (node.nodeName != "FORM" && node.parentNode) {
+      node = node.parentNode;
+  }
+  console.log(node);
+  
+  if(node.nodeName === "FORM") {
+    id('fitnesse-form').innerHTML = 'Skjema valgt';
+  } else {
+    id('fitnesse-form').innerHTML = 'Skjema ikke funnet'; 
+  }
+  
+  document.removeEventListener('click');
+});                           
+  
 
 var w = id('form');
 var out = id('output');
@@ -31,36 +54,17 @@ w.addEventListener('change', function (evt) {
     log(t.id, t.value);
 });
 
+function logCompleteForm() {  
+  console.log("yoyo");
+  var inputs = w.getElementsByTagName('input');
+  
+  for(var i = 0; i<inputs.length; i++) {
+    console.log(inputs[i].value); 
+  }
+}
+
 w.addEventListener('submit', function (evt) {
     evt.preventDefault();
 
-    var errorBox = document.createElement('div');
-    errorBox.textContent = 'Du må fylle ut ett beløp';
-    errorBox.className = 'errorBox';
-
-    id('amount').parentNode.appendChild(errorBox);
+    logCompleteForm();
 });
-
-
-// https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver
-
-//// create an observer instance
-//var observer = new MutationObserver(function (mutations) {
-//    mutations.forEach(function (mutation) {
-//        console.log(mutation);
-//        
-//        var input = mutation.target.children[1];
-//
-//        log(input.id, input.value, mutation.addedNodes[0].textContent);
-//    });
-//});
-//
-//// configuration of the observer:
-//var config = {
-//    attributes: true,
-//    childList: true,
-//    characterData: true
-//};
-//
-//// pass in the target node, as well as the observer options
-//observer.observe(id('amountWrapper'), config);
