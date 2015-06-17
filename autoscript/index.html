@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo time</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <form id="form" action="/">
+        <div>
+            <div class="input">
+                <label>Fra konto</label>
+                <input type="text" id="fromAccount" />
+            </div>
+            <div class="input">
+                <label>Til konto</label>
+                <input type="text" id="toAccount" />
+            </div>
+            <div class="input">
+                <label>Beløp</label>
+                <input type="text" id="amount" />
+            </div>
+            <div class="input">
+                <label>Dato</label>
+                <input type="text" id="date" />
+            </div>
+            <button id="submit">Legg til godkjenning</button>
+        </div>
+    </form>
+
+    <div id="logg">
+        <p>Logg:</p>
+        <div id="output"></div>
+    </div>
+
+    <script src="build.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+body {
+    display: flex;
+}
+
+#form {
+    width: 200px;
+}
+
+label {
+    display: block;
+}
+
+.input {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.wrapper-child {
+    width: 50%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.errorBox {
+    background: rgba(255,0,0,0.4);
+    border: 1px solid red;
+    padding: 10px;
+    margin-top: 7px;
+    max-width: 173px;
+    font-size: 14px;
+}
+
+.errorBox:before {
+    content: "";
+    border: 11px solid transparent;
+    position: absolute;
+    top: 23px;
+    border-bottom-color: red;
+}
