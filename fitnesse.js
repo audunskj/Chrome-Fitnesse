@@ -2,9 +2,11 @@ var id = function (el) {
     return document.getElementById(el);
 };
 
-var elemDiv = document.createElement('div');
-elemDiv.setAttribute("id", "output");
-document.body.appendChild(elemDiv);
+if(id('output') === null) {
+  var elemDiv = document.createElement('div');
+  elemDiv.setAttribute("id", "output");
+  document.body.appendChild(elemDiv);
+}
 
 var w = id('form');
 var out = id('output');
