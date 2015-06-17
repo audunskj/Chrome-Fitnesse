@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="log"></div>
+</body>
+
+<script>
+    var log = document.getElementById('log');
+    
+    window.log = function(text) {
+        log.innerHTML += text + '<br>';
+    }
+    
+    chrome.runtime.onMessage.addListener(function callback(evt) {
+        console.log('panel on message');
+        
+        log(evt);
+    })
+</script>
+</html>
