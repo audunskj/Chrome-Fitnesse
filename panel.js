@@ -10,9 +10,10 @@ console.log("yo");
 //    sendObjectToInspectedPage({action: "code", content: "console.log('Inline script executed')"});
 //}, false);
 //
-//document.querySelector('#insertscript').addEventListener('click', function() {
-//    sendObjectToInspectedPage({action: "script", content: "inserted-script.js"});
-//}, false);
+document.querySelector('#insertscript').addEventListener('click', function() {
+  console.log("ok");
+    sendObjectToInspectedPage({action: "script", content: "inserted-script.js"});
+}, false);
 //
 //document.querySelector('#insertmessagebutton').addEventListener('click', function() {
 //    sendObjectToInspectedPage({action: "code", content: "document.body.innerHTML='<button>Send message to DevTools</button>'"});
