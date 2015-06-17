@@ -10,7 +10,7 @@ console.log("yo");
 //    sendObjectToInspectedPage({action: "code", content: "console.log('Inline script executed')"});
 //}, false);
 //
-document.querySelector('#insertscript').addEventListener('click', function() {
+document.querySelector('#fitnesse-start').addEventListener('click', function() {
   console.log("ok");
     sendObjectToInspectedPage({action: "script", content: "inserted-script.js"});
 }, false);
