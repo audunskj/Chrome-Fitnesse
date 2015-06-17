@@ -6,14 +6,10 @@ function print(value) {
     return value === '' ? '[empty]' : value;
 }
 
-function log(field, value, errorMsg) {
-    out.innerHTML += '| input | ' + field + ' | value | ' + print(value) + ' |';
+function log(field, value, out) {
+  out.innerHTML += '| input | ' + field + ' | value | ' + print(value) + ' |';
 
-    if (errorMsg) {
-        out.innerHTML += ' error | ' + errorMsg + ' |';
-    }
-    
-    out.innerHTML += '<br>';
+  out.innerHTML += '<br>';
 }
 
 if(id('output') === null) {
@@ -27,8 +23,11 @@ if(id('output') === null) {
   document.body.appendChild(elemDiv);
 }
 
-document.addEventListener('click', function(event) {
+id('fitnesse-form').innerHTML = 'Velg skjema';
 
+function addListener(event) {
+  
+  document.removeEventListener('click', addListener);
   node = event.target;
   while (node.nodeName != "FORM" && node.parentNode) {
       node = node.parentNode;
@@ -39,20 +38,15 @@ document.addEventListener('click', function(event) {
     
     var w = node;
     var out = id('output');
-
-
-
-    w.addEventListener('change', function (evt) {
-        var t = evt.target;
-
-        log(t.id, t.value);
-    });
+    console.log(out);
 
     function logCompleteForm() {  
       console.log("yoyo");
+      console.log(out);
       var inputs = w.getElementsByTagName('input');
 
       for(var i = 0; i<inputs.length; i++) {
+        log(inputs[i].id, inputs[i].value, out);
         console.log(inputs[i].value); 
       }
     }
@@ -66,8 +60,9 @@ document.addEventListener('click', function(event) {
     id('fitnesse-form').innerHTML = 'Skjema ikke funnet'; 
   }
   
-  document.removeEventListener('click');
-});                           
+}
+
+document.addEventListener('click', addListener);
   
 
 
